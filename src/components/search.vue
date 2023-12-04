@@ -16,6 +16,6 @@ export default {
 
 </script>
 <template>
-    <input type="text" v-model="store.cerca" @keyup.enter=filter()>
+    <input type="text" v-model="store.cerca" @keyup.enter="$emit('cerca')">
 </template>
 <style scoped></style>

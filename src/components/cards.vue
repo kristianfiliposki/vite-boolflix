@@ -1,11 +1,25 @@
 <script>
+import { store } from '../store'
 export default {
+    data() {
+        return {
+            store,
+        };
+    },
+    methods: {
+        filter() {
+            this.$emit("cerca")
+        },
 
+    },
+    mounted() {
+        this.filter()
+    },
 }
 </script>
 <template>
     <div>
-        <div v-for="nome in nomi">
+        <div v-for="nome in store.nomi">
             <div class="elementi">
 
                 <div>
@@ -32,4 +46,14 @@ export default {
         </div>
     </div>
 </template>
-<style></style>
+<style scoped>
+.elementi {
+    display: flex;
+    width: 50%;
+}
+
+.elementi div {
+    margin-left: 30px;
+
+}
+</style>

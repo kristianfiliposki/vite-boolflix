@@ -1,2 +1,2 @@
 import { reactive } from "vue";
-export const store = reactive({ cerca: "" })
+export const store = reactive({ cerca: "", nomi: "", })
