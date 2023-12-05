@@ -6,18 +6,8 @@ export default {
             store,
         };
     },
-    methods: {
-        filter() {
-            this.$emit("cerca")
-        },
-        flags() { }
-
-
-
-    },
-    mounted() {
-        this.filter()
-    },
+    methods: {},
+    mounted() { },
 }
 </script>
 <template>
