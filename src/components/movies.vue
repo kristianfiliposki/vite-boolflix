@@ -68,10 +68,9 @@ export default {
 
 .elementi {
     width: 200px;
-    max-height: 400px;
     background-color: red;
     border: 1px solid black;
-
+    flex: 1 1 0px;
 }
 
 .elementi div {

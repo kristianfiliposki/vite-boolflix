@@ -63,15 +63,14 @@ export default {
     width: 82vw;
     overflow-x: auto;
     justify-content: center;
+    flex: 1 1 0px;
 }
 
 .elementi {
     width: 200px;
-    max-height: 400px;
     background-color: lightblue;
     border: 1px solid black;
     color: black;
-
 }
 
 .elementi div {
