@@ -10,8 +10,7 @@ export default {
     methods: {
         filter() {
             this.$emit("cerca")
-        },
-
+        }
     },
     mounted() {
         this.filter()
