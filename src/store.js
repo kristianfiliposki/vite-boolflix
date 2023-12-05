@@ -8,14 +8,14 @@ export const store = reactive({
             [
                 {
                     language: [],
-                    flags: "",
+                    flags: [],
                 },
             ],
         movie:
             [
                 {
                     language: [],
-                    flags: "",
+                    flags: [],
 
                 },
             ]

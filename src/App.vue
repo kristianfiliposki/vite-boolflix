@@ -18,13 +18,17 @@ export default {
         this.store.films = risultato.data.results;
         this.store.films.forEach(film => {
           store.collections[0].movie[0].language.push(film.original_language)
-          console.log(store.collections[0].movie[0].language)
           store.collections[0].movie[0].language.forEach(language => {
             if (language == "en") {
               store.bandieraUk = true
+              store.collections[0].movie[0].flags.push(store.bandieraUk)
+              console.log(store.collections[0].movie[0].flags)
+
             }
             else {
               store.bandieraUk = false
+              store.collections[0].movie[0].flags.push(store.bandieraUk)
+
             }
           });
 
@@ -40,13 +44,15 @@ export default {
           this.store.series = risultato.data.results;
           this.store.series.forEach(serie => {
             store.collections[0].serie[0].language.push(serie.original_language)
-            console.log(store.collections[0].serie[0].language)
             store.collections[0].serie[0].language.forEach(language => {
               if (language == "en") {
                 store.bandieraUk = true
+                store.collections[0].serie[0].flags.push(store.bandieraUk)
               }
               else {
                 store.bandieraUk = false
+                store.collections[0].serie[0].flags.push(store.bandieraUk)
+
               }
             });
 
