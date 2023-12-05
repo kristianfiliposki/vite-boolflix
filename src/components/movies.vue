@@ -4,8 +4,6 @@ export default {
     data() {
         return {
             store,
-            emits: ["cerca"]
-
         };
     },
     methods: {},
