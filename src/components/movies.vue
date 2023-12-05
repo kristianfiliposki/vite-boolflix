@@ -8,15 +8,8 @@ export default {
 
         };
     },
-    methods: {
-        filter() {
-            this.$emit("cerca")
-        },
-
-    },
-    mounted() {
-        this.filter()
-    },
+    methods: {},
+    mounted() { },
 }
 </script>
 <template>

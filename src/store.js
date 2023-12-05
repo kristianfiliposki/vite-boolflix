@@ -3,21 +3,21 @@ export const store = reactive({
     cerca: "", films: "", series: "", bandieraUk: "",
 
 
-    collections: [{
+    collections: {
         serie:
-            [
-                {
-                    language: [],
-                    flags: [],
-                },
-            ],
-        movie:
-            [
-                {
-                    language: [],
-                    flags: [],
 
-                },
-            ]
-    }]
+        {
+            language: [],
+            flags: [],
+        },
+
+        movie:
+
+        {
+            language: [],
+            flags: [],
+
+        },
+
+    }
 })
