@@ -17,12 +17,17 @@ export default {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=90a7a15fa0adf959e3dadb07a0339196&query=${this.store.cerca}`).then(risultato => {
         this.store.films = risultato.data.results;
         this.store.films.forEach(film => {
-          if (film.original_language == `en`) {
-            this.store.bandieraUk = true
-          }
-          else if (!(film.original_language == "en")) {
-            this.store.bandieraUk = false
-          }
+          store.collections[0].movie[0].language.push(film.original_language)
+          console.log(store.collections[0].movie[0].language)
+          store.collections[0].movie[0].language.forEach(language => {
+            if (language == "en") {
+              store.bandieraUk = true
+            }
+            else {
+              store.bandieraUk = false
+            }
+          });
+
 
         });
       });
@@ -33,7 +38,20 @@ export default {
       )
         .then(risultato => {
           this.store.series = risultato.data.results;
-          console.log(this.store.series)
+          this.store.series.forEach(serie => {
+            store.collections[0].serie[0].language.push(serie.original_language)
+            console.log(store.collections[0].serie[0].language)
+            store.collections[0].serie[0].language.forEach(language => {
+              if (language == "en") {
+                store.bandieraUk = true
+              }
+              else {
+                store.bandieraUk = false
+              }
+            });
+
+          });
+
         });
     },
 
