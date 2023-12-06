@@ -8,9 +8,12 @@ export default {
   data() {
     return {
       store,
+      voto:""
     };
   },
-  methods: {},
+  methods: {
+
+  },
 
   components: {
     Search,

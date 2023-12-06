@@ -8,6 +8,7 @@ export default {
         };
     },
     methods: {
+        
 
     },
     mounted() {
@@ -20,22 +21,22 @@ export default {
         <div v-for="serie in store.series">
             <div class="elementi">
                 <div>
-                    <h2>titolo</h2>
+                    <h3>titolo</h3>
                     <div>{{ serie.name }}</div>
                 </div>
                 <div>
-                    <img :src="store.src + serie.poster_path" class="">
+                    <img :src="store.src + serie.poster_path" class="copertine">
                 </div>
 
 
                 <div>
-                    <h2>titolo originale</h2>
+                    <h3>titolo originale</h3>
                     <div>
                         {{ serie.original_name }}
                     </div>
                 </div>
                 <div>
-                    <h2>lingua originale</h2>
+                    <h3>lingua originale</h3>
                     <div>
                         <div v-if="store.availableLanguage.includes(serie.original_language)">
                             <img class="flags" :src="`/flags/${serie.original_language}.png`">
@@ -47,8 +48,10 @@ export default {
                 </div>
 
                 <div>
-                    <h2>voto</h2>
-                    <div>{{ serie.vote_average }}</div>
+                    <h3>voto</h3>
+                    <div>{{ (Math.round(((serie.vote_average * 5) / 10 )))}}</div>
+
+
                 </div>
 
             </div>
@@ -59,30 +62,25 @@ export default {
 .container {
     display: flex;
     width: 82vw;
-    height: 30vh;
     overflow-x: auto;
-    justify-content: center;
+    justify-content: start;
+}
+.elementi {
     flex: 1 1 0px;
+    width: 400px;
+    height: 1000px;
+}
+h2{
+    font-size: 3em;
 }
 
-.elementi {
-    background-color: lightblue;
-    border: 1px solid black;
-    color: black;
-    width: 300px;
-    height: 500px;
-}
 .copertine{
     width: 100%;
-    height: 300px;
+    height: 500px;
 
 }
 .flags{
     width: 100px;
     height: 50px;
-}
-
-.elementi div {
-    font: 50%
 }
 </style>

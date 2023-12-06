@@ -24,7 +24,7 @@ export default {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=90a7a15fa0adf959e3dadb07a0339196&query=${this.store.cerca}`).then(risultato => {
                 store.films = risultato.data.results;
             });
-        }
+        },
     }
 }
 
