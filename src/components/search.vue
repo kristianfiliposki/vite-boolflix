@@ -30,6 +30,6 @@ export default {
 
 </script>
 <template>
-    <input type="text" v-model="store.cerca" @keyup.enter="series(), films(),">
+    <input type="text" v-model="store.cerca" @keyup.enter="series(), films()">
 </template>
 <style scoped></style>

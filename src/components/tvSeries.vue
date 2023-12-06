@@ -49,7 +49,11 @@ export default {
 
                 <div>
                     <h3>voto</h3>
-                    <div>{{ (Math.round(((serie.vote_average * 5) / 10 )))}}</div>
+                    <div  class="stelline">
+                        <div v-for=" in  (Math.round((serie.vote_average * 5) / 10))">
+                            {{ (Math.round(((serie.vote_average * 5) / 10 ))) }}
+                        </div>
+                    </div>
 
 
                 </div>
@@ -72,6 +76,13 @@ export default {
 }
 h2{
     font-size: 3em;
+}
+.stelline{
+    display: flex;
+    justify-content: center;
+}
+.stelline div{
+    margin: 3px;
 }
 
 .copertine{

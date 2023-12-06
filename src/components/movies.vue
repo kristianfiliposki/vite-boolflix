@@ -7,9 +7,9 @@ export default {
         };
     },
     methods: {
-        stars(){
+        stars() {
             for (let i = 1; i <= numero; i++) {
-                
+
             }
         }
     },
@@ -26,7 +26,7 @@ export default {
                     <h3>titolo</h3>
                     <div>{{ film.title }}</div>
                 </div>
-                <div >
+                <div>
                     <img :src="store.src + film.poster_path" class="copertine">
                 </div>
                 <div>
@@ -42,17 +42,17 @@ export default {
                         <div v-if="store.availableLanguage.includes(film.original_language)">
                             <img class="flags" :src="`/flags/${film.original_language}.png`">
                         </div>
-                        <div v-else>{{film.original_language}}</div>
+                        <div v-else>{{ film.original_language }}</div>
                     </div>
                 </div>
 
                 <div>
                     <h3>voto</h3>
-                    <div v-for=" in  5">{{ (Math.round(((film.vote_average * 5) / 10 ))) }}</div>
-
-
-
-
+                    <div class="stelline">
+                        <div v-for=" in  (Math.round((film.vote_average * 5) / 10))">
+                            <font-awesome-icon :icon="['far', 'star']" />
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -73,14 +73,25 @@ export default {
     height: 1000px;
 }
 
-h2{
+h2 {
     font-size: 3em;
 }
-.copertine{
+
+.stelline {
+    display: flex;
+    justify-content: center;
+}
+
+.stelline div {
+    margin: 3px;
+}
+
+.copertine {
     width: 100%;
     height: 500px;
 }
-.flags{
+
+.flags {
     width: 100px;
     height: 50px;
 }
