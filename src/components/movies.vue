@@ -6,8 +6,11 @@ export default {
             store,
         };
     },
-    methods: {},
-    mounted() { },
+    methods: {
+
+    },
+    mounted() {
+    },
 }
 </script>
 <template>
@@ -19,7 +22,9 @@ export default {
                     <h2>titolo</h2>
                     <div>{{ film.title }}</div>
                 </div>
-
+                <div >
+                    <img :src="store.src + film.poster_path" class="copertine">
+                </div>
                 <div>
                     <h2>titolo originale</h2>
                     <div>
@@ -30,13 +35,10 @@ export default {
                 <div>
                     <h2>lingua originale</h2>
                     <div>
-                        <div v-if="store.bandieraUk == false">
-                            {{ film.original_language }}
+                        <div v-if="store.availableLanguage.includes(film.original_language)">
+                            <img class="flags" :src="`/flags/${film.original_language}.png`">
                         </div>
-                        <div v-else="store.bandieraUk == true">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/40px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
-                                alt="foto">
-                        </div>
+                        <div v-else>{{film.original_language}}</div>
                     </div>
                 </div>
 
@@ -56,12 +58,22 @@ export default {
     overflow-x: auto;
     justify-content: center;
 }
+.copertine{
+    width: 100%;
+    height: 300px;
+
+}
 
 .elementi {
-    width: 200px;
     background-color: red;
     border: 1px solid black;
     flex: 1 1 0px;
+    width: 300px;
+    height: 500px;
+}
+.flags{
+    width: 100px;
+    height: 50px;
 }
 
 .elementi div {

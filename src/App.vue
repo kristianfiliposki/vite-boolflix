@@ -1,5 +1,4 @@
 <script >
-import axios from 'axios';
 import { store } from './store'
 import Search from './components/search.vue';
 import Movies from './components/movies.vue';
@@ -23,9 +22,18 @@ export default {
 </script>
 
 <template>
-  <Search />
-  <Movies />
-  <tvSeries />
+  <div class="container">
+    <div>
+      <Search />
+      <Movies />
+      <tvSeries />
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container{
+  display: flex;
+  justify-content: center;
+}
+</style>
