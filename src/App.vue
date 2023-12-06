@@ -8,7 +8,7 @@ export default {
   data() {
     return {
       store,
-      voto:""
+      voto: ""
     };
   },
   methods: {
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div>
     <div>
       <Search />
       <Movies />
@@ -35,8 +35,7 @@ export default {
 </template>
 
 <style scoped>
-.container{
-  display: flex;
-  justify-content: center;
+.container {
+  width: 100%;
 }
 </style>
