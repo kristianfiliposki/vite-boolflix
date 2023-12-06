@@ -7,7 +7,11 @@ export default {
         };
     },
     methods: {
-
+        stars(){
+            for (let i = 1; i <= numero; i++) {
+                
+            }
+        }
     },
     mounted() {
     },
@@ -44,7 +48,9 @@ export default {
 
                 <div>
                     <h3>voto</h3>
-                    <div>{{ (Math.round(((film.vote_average * 5) / 10 )))}}</div>
+                    <div v-for=" in  5">{{ (Math.round(((film.vote_average * 5) / 10 ))) }}</div>
+
+
 
 
                 </div>

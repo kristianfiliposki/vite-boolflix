@@ -32,6 +32,7 @@ export const store = reactive({
         "hi",
         "cz",
     ],
+    stars:"",
 
 
 })
