@@ -9,6 +9,7 @@ export default {
     },
     methods: {
 
+
         series() {
             axios.get(
                 `https://api.themoviedb.org/3/search/tv?api_key=90a7a15fa0adf959e3dadb07a0339196&query=${this.store.cerca}`
@@ -50,7 +51,7 @@ export default {
 
 .ricerca {
     font-size: 1.7em;
-    color: red;
+    color: rgb(255, 252, 252);
     width: 15%;
     height: 100%;
     border-radius: 14px;
@@ -58,14 +59,13 @@ export default {
 }
 
 h2 {
-    margin: 30px;
-    height: 20%;
+    margin: 0 1%;
+    font-size: 1em;
 }
 
 input {
     border-radius: 14px;
     width: 100%;
-    height: 30%;
-    border: 1px solid black;
+    height: 20%;
 }
 </style>

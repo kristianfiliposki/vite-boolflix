@@ -1,14 +1,13 @@
 <script>
+
 import { store } from '../store'
 export default {
     data() {
         return {
             store,
-
         };
     },
     methods: {
-
 
     },
     mounted() {
@@ -16,56 +15,103 @@ export default {
 }
 </script>
 <template>
-    <h2>SerieTV</h2>
-    <div class="serie">
+    <h2>TvSeries</h2>
+    <div class="TvSeries">
         <div class="container">
-            <div v-for="serie in store.series">
-                <div class="elementi">
-                    <div>
-                        <h3>titolo</h3>
-                        <div>{{ serie.name }}</div>
-                    </div>
-                    <div>
+            <div v-for="serie in store.series" :key="serie.id" class="flip-card">
+
+                <div class="elementi flip-card-inner">
+                    <div class="flip-card-front">
                         <img :src="store.src + serie.poster_path" class="copertine">
                     </div>
-
-
-                    <div>
-                        <h3>titolo originale</h3>
+                    <div class="flip-card-back">
                         <div>
-                            {{ serie.original_name }}
-                        </div>
-                    </div>
-                    <div>
-                        <h3>lingua originale</h3>
-                        <div>
-                            <div v-if="store.availableLanguage.includes(serie.original_language)">
-                                <img class="flags" :src="`/flags/${serie.original_language}.png`">
+                            <div>
+
+                                <div>
+                                    <h3>Titolo: {{ serie.original_name }}</h3>
+                                    <h3> Titolo originale:{{ serie.original_name }}</h3>
+                                    <h3>lingua originale</h3>
+                                    <div v-if="store.availableLanguage.includes(serie.original_language)">
+                                        <img class="flags" :src="`/flags/${serie.original_language}.png`">
+                                    </div>
+                                    <div v-else="store.bandieraUk == false">
+                                        {{ serie.original_language }}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3>voto</h3>
+                                    <div class="stelline">
+                                        <div v-for=" in  (Math.round((serie.vote_average * 5) / 10))">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div v-else="store.bandieraUk == false">
-                                {{ serie.original_language }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3>voto</h3>
-                        <div class="stelline">
-                            <div v-for=" in  (Math.round((serie.vote_average * 5) / 10))">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
                         </div>
 
-
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </template>
 <style scoped>
-.serie {
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+    width: 400px;
+    height: 500px;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background: rgb(120, 10, 10);
+    color: white;
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    color: red;
+}
+
+.TvSeries {
     display: flex;
     justify-content: center;
 }
@@ -78,10 +124,27 @@ export default {
 }
 
 .elementi {
-    flex: 1 1 0px;
     width: 400px;
-    height: 1000px;
+    height: 500px;
 }
+
+.boxCard {
+    position: relative;
+}
+
+.InfoCard {
+    z-index: 999;
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    background-color: rgba(200, 20, 20, 0.7);
+}
+
+.InfoCard:hover {
+    background-color: black(200, 20, 20, 0.7);
+}
+
+
 
 h2 {
     font-size: 3em;
@@ -98,8 +161,7 @@ h2 {
 
 .copertine {
     width: 100%;
-    height: 500px;
-
+    height: 100%;
 }
 
 .flags {
